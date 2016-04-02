@@ -18,5 +18,20 @@ public class ImageObject extends GameObject{
 		if(InputManager.LEFT_ARROW_KEY) {
 			x--;
 		}
+		if(InputManager.RIGHT_ARROW_KEY) {
+			x++;
+		}
+		if(InputManager.UP_ARROW_KEY) {
+			y--;
+		}
+		if(InputManager.DOWN_ARROW_KEY) {
+			y++;
+		}
+		if(InputManager.SPACEBAR) {
+			width+=50;
+			height+=50;
+		}
+		x=InputManager.xOfMouse;
+		y=InputManager.yOfMouse;
 	}
 }

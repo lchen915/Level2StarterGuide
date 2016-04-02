@@ -14,6 +14,7 @@ public class GamePanel extends JPanel implements ActionListener{
 	GameObject object1;
 	GameObject object2;
 	ImageObject object3;
+	GameObject object4;
 	int x;
 	int y;
 	int width;
@@ -21,6 +22,7 @@ public class GamePanel extends JPanel implements ActionListener{
 	Color c;
 	int speedx;
 	int speedy;
+	boolean mouse1=false;
 	
 	GamePanel() {
 		System.out.println("gamepanel");
@@ -50,7 +52,10 @@ public class GamePanel extends JPanel implements ActionListener{
 		//g.fillRect(x, y, width, height);
 		object1.draw(g, Color.BLUE);
 		object2.draw(g, Color.RED);
-		object3.draw(g, Color.BLACK);
+		object3.draw(g, Color.RED);
+		if (mouse1) {
+			object4.draw(g, Color.BLUE);
+		}
 	}
 
 	@Override
@@ -59,6 +64,10 @@ public class GamePanel extends JPanel implements ActionListener{
 		//System.out.println("actionperformed");
 		repaint();
 		object3.update();
+		if (InputManager.MOUSE) {
+			mouse1=true;
+			object4 = new GameObject(InputManager.xOfMouse, InputManager.yOfMouse, 500,500,Color.BLUE);
+		}
 		/*if (x>=300) {
 			y=y+100;
 			speedx=0;
